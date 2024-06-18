@@ -2,6 +2,7 @@ import { Job } from "@prisma/client"
 import Image from "next/image"
 import placeholder from "@/assets/company-logo-placeholder.png"
 import { Banknote, Briefcase, Clock, Earth, MapPin } from "lucide-react"
+import { formatDate } from "@/lib/utils"
 
 interface JobItemProps {
   job: Job
@@ -58,7 +59,7 @@ export default function JobItem({
         </span>
         <span className="flex items-center gap-1.5 text-muted-foreground">
           <Clock size={16} />
-          {createdAt.toISOString()}
+          {formatDate(createdAt)}
         </span>
       </div>
     </article>
