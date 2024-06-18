@@ -7,8 +7,17 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatDate(dateStr: Date) {
-    const date = formatDistanceToNowStrict(dateStr)
+  const date = formatDistanceToNowStrict(dateStr)
 
-    return `${date} ago`
+  return `${date} ago`
 }
 
+export function formatMoney(
+  amount: number,
+  currency = "USD",
+  locale = "en-US"
+) {
+  return Intl.NumberFormat(locale, { style: "currency", currency }).format(
+    amount
+  )
+}

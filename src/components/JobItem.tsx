@@ -2,7 +2,7 @@ import { Job } from "@prisma/client"
 import Image from "next/image"
 import placeholder from "@/assets/company-logo-placeholder.png"
 import { Banknote, Briefcase, Clock, Earth, MapPin } from "lucide-react"
-import { formatDate } from "@/lib/utils"
+import { formatDate, formatMoney } from "@/lib/utils"
 
 interface JobItemProps {
   job: Job
@@ -49,7 +49,7 @@ export default function JobItem({
           </p>
           <p className="flex items-center gap-1.5">
             <Banknote size={16} className="shrink-0" />
-            {salary}
+            {formatMoney(salary)}
           </p>
         </div>
       </div>
