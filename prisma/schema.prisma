@@ -9,3 +9,23 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Job {
+  id               Int      @id @default(autoincrement())
+  slug             String   @unique
+  title            String
+  type             String
+  location         String?
+  locationType     String
+  salary           Int
+  companyName      String
+  companyLogoUrl   String?
+  applicationEmail String?
+  applicationUrl   String?
+  description      String?
+  approved         Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAd        DateTime @updatedAt
+
+  @@map("jobs")
+}
