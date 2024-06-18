@@ -1,3 +1,5 @@
+import FilterJob from "@/components/FilterJob";
+import JobResults from "@/components/JobResults";
 
 
 export default async function Home() {
@@ -9,7 +11,8 @@ export default async function Home() {
         <p className="text-muted-foreground">Find your dream job.</p>
       </div>
       <section className="flex flex-col gap-4 md:flex-row">
-        <aside className="w-[30%]">Filter jobs</aside>
+        <FilterJob />
+        <JobResults />
       </section>
     </main>
   )
