@@ -32,12 +32,12 @@ export default function PaginationJobs({
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <Button asChild disabled={currentPage === 1} variant={"outline"}>
+          <Button disabled={currentPage === 1} variant={"outline"}>
             <Link href={changePage(1)}>First Page</Link>
           </Button>
         </PaginationItem>
         <PaginationItem>
-          <Button asChild disabled={currentPage === 1} variant={"ghost"}>
+          <Button disabled={currentPage === 1} variant={"ghost"}>
             <Link href={changePage(currentPage - 1)}>
               <ChevronLeftIcon />
             </Link>
@@ -47,22 +47,14 @@ export default function PaginationJobs({
           Page {currentPage} of {totalPages}
         </p>
         <PaginationItem>
-          <Button
-            asChild
-            disabled={currentPage === totalPages}
-            variant={"ghost"}
-          >
+          <Button disabled={currentPage === totalPages} variant={"ghost"}>
             <Link href={changePage(currentPage + 1)}>
               <ChevronRightIcon />
             </Link>
           </Button>
         </PaginationItem>
         <PaginationItem>
-          <Button
-            asChild
-            disabled={currentPage === totalPages}
-            variant={"outline"}
-          >
+          <Button disabled={currentPage === totalPages} variant={"outline"}>
             <Link href={changePage(totalPages)}>Last Page</Link>
           </Button>
         </PaginationItem>
