@@ -60,7 +60,7 @@ export default function JobDetailsPage({
             </p>
             <p className="flex items-center gap-1.5">
               <EarthIcon size={16} />
-              {location}
+              {location ? location : "WorldWide"}
             </p>
             <p className="flex items-center gap-1.5">
               <Banknote size={16} />
