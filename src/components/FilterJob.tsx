@@ -56,8 +56,8 @@ export default async function FilterJob({
             />
           </div>
           <div className="flex flex-col gap-2">
-            <Label htmlFor="types">Types</Label>
-            <Select id="types" name="types" defaultValue={type || ""}>
+            <Label htmlFor="type">Types</Label>
+            <Select id="type" name="type" defaultValue={type || ""}>
               <option value="">All Types</option>
               {jobTypes.map((type) => (
                 <option key={type} value={type}>
