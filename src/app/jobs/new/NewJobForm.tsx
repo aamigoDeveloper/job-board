@@ -131,25 +131,13 @@ export default function NewJobForm() {
                 <FormItem>
                   <FormLabel>Company Logo</FormLabel>
                   <FormControl>
-                    {/* <Input
+                    <Input
                       {...feildValue}
                       type="file"
                       accept="image/*"
                       onChange={(e) => {
                         const file = e.target?.files?.[0]
                         feildValue.onChange(file)
-                      }}
-                    /> */}
-                    <UploadButton
-                      endpoint="imageUploader"
-                      onClientUploadComplete={(res) => {
-                        // Do something with the response
-                        console.log("Files: ", res)
-                        alert("Upload Completed")
-                      }}
-                      onUploadError={(error: Error) => {
-                        // Do something with the error.
-                        alert(`ERROR! ${error.message}`)
                       }}
                     />
                   </FormControl>
