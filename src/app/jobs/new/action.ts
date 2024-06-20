@@ -13,7 +13,6 @@ export const createJob = async (formData: FormData) => {
     title,
     type,
     companyName,
-    companyLogo,
     locationType,
     location,
     applicationEmail,
@@ -39,5 +38,5 @@ export const createJob = async (formData: FormData) => {
     },
   })
 
-  redirect('/')
+  redirect("/job-submitted")
 }
