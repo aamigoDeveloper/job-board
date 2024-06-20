@@ -41,11 +41,26 @@ export async function generateMetadata({
 export default async function Page({ params: { slug } }: PageProps) {
   const job = await getJob(slug)
 
+  const { applicationEmail, applicationUrl } = job
+
+  const applicationLink = applicationEmail
+    ? `mailto:${applicationEmail}`
+    : applicationUrl
+
+  if (!applicationLink) {
+    console.error("Job has no application link or email")
+    notFound()
+  }
+
   return (
     <main className="m-auto max-w-5xl my-10 px-3 flex flex-col gap-5 items-center justify-between md:flex-row md:items-start">
       <JobDetailsPage job={job!} />
       <aside>
-        <Button>Apply now</Button>
+        <Button>
+          <a href={applicationLink} className="w-40 md:w-fit">
+            Apply now
+          </a>
+        </Button>
       </aside>
     </main>
   )
