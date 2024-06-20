@@ -21,6 +21,7 @@ import { Label } from "@/components/ui/label"
 import RichTextEditor from "@/components/RichTextEditor"
 import { draftToMarkdown } from "markdown-draft-js"
 import LoaderButton from "@/components/LoaderButton"
+import { createJob } from "./action"
 
 export default function NewJobForm() {
   const form = useForm<CreateJobValues>({
@@ -36,6 +37,22 @@ export default function NewJobForm() {
     setFocus,
     handleSubmit,
   } = form
+
+  const onSubmit = async (values: CreateJobValues) => {
+    const formData = new FormData()
+
+    Object.entries(values).forEach(([key, value]) => {
+      if (value) {
+        formData.append(key, value)
+      }
+    })
+
+    try {
+      await createJob(formData)
+    } catch (error) {
+      alert("Something went wrong, Please try again later.")
+    }
+  }
 
   return (
     <main className="max-w-3xl m-auto my-10">
@@ -53,7 +70,11 @@ export default function NewJobForm() {
           </p>
         </div>
         <Form {...form}>
-          <form action="" className="space-y-5">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            noValidate
+            className="space-y-5"
+          >
             <FormField
               control={control}
               name="title"
@@ -190,7 +211,7 @@ export default function NewJobForm() {
                   control={control}
                   name="applicationEmail"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="grow">
                       <FormControl>
                         <div className="flex items-center">
                           <Input
@@ -210,7 +231,7 @@ export default function NewJobForm() {
                   control={control}
                   name="applicationUrl"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="grow">
                       <FormControl>
                         <Input
                           placeholder="Website"
