@@ -59,6 +59,8 @@ export const createJobSchema = z
   .and(applicationSchema)
   .and(locationSchema)
 
+export type CreateJobValues = z.infer<typeof createJobSchema>
+
 export const jobFilterSchema = z.object({
   q: z.string().optional(),
   type: z.string().optional(),
